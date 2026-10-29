@@ -1,0 +1,102 @@
+@import "tailwindcss";
+
+@custom-variant dark (&:where(.dark, .dark *));
+
+/* Site-wide tokens. Demos may layer their own palette on top. */
+@theme {
+  --font-sans: "Inter", ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif;
+  --font-mono: "JetBrains Mono", ui-monospace, SFMono-Regular, Menlo, monospace;
+
+  --color-ink-950: #0b0d12;
+  --color-ink-900: #11141b;
+  --color-ink-850: #161a23;
+  --color-ink-800: #1c212c;
+  --color-ink-700: #2a3040;
+  --color-ink-600: #3b4256;
+  --color-ink-400: #8a93a8;
+  --color-ink-300: #aab2c4;
+  --color-ink-200: #cdd3df;
+  --color-ink-100: #e8ebf1;
+
+  --color-accent-300: #9ad7ff;
+  --color-accent-400: #5cbcff;
+  --color-accent-500: #2f9bf0;
+  --color-accent-600: #1f7acb;
+
+  /* AIValidator demo palette (dark theme of the real app) */
+  --font-display: "Rajdhani", "Inter", ui-sans-serif, sans-serif;
+  --color-aiv-bg: #0b1220;
+  --color-aiv-surface: #0f1724;
+  --color-aiv-panel: #142033;
+  --color-aiv-raised: #1a2840;
+  --color-aiv-text: #e6eef8;
+  --color-aiv-muted: #9aa6b2;
+  --color-aiv-faint: #64707f;
+  --color-aiv-line: rgb(255 255 255 / 0.08);
+  --color-aiv-line-strong: rgb(255 255 255 / 0.16);
+  --color-aiv-accent: #ff3366;
+  --color-aiv-accent-soft: #ff5577;
+  --color-aiv-accent-hover: #e62e5c;
+  --color-aiv-ok: #28a745;
+  --color-aiv-warn: #ffc107;
+  --color-aiv-bad: #dc3545;
+  --color-aiv-info: #3b8cff;
+
+  /* Remember When · Care Intelligence (light theme of the real app) */
+  --font-rw: "Montserrat", ui-sans-serif, system-ui, sans-serif;
+  --font-quote: Georgia, "Times New Roman", serif;
+  --color-rw-nav: #132339;
+  --color-rw-nav-text: #c3d0dd;
+  --color-rw-nav-muted: #a9bacd;
+  --color-rw-nav-active: #7fa6cf;
+  --color-rw-nav-line: #3c4f67;
+  --color-rw-ground: #f2f5f8;
+  --color-rw-card: #ffffff;
+  --color-rw-ink: #36414c;
+  --color-rw-muted: #66717d;
+  --color-rw-faint: #98a3ae;
+  --color-rw-line: #e0e6ec;
+  --color-rw-soft: #f4f6f9;
+  --color-rw-captured: #1e63b4;
+  --color-rw-recalled: #137a4b;
+  --color-rw-signal: #b3261e;
+  --color-rw-person: #2e6da4;
+  --color-rw-event: #a99ede;
+  --color-rw-place: #1f7a52;
+  --color-rw-org: #8a7433;
+  --color-rw-caution: #fcf6ec;
+  --color-rw-ochre: #a7791b;
+}
+
+html {
+  color-scheme: dark;
+}
+
+body {
+  @apply bg-ink-950 text-ink-100 font-sans antialiased;
+}
+
+::selection {
+  @apply bg-accent-500/40;
+}
+
+@keyframes fade-up {
+  from {
+    opacity: 0;
+    transform: translateY(6px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+.animate-fade-up {
+  animation: fade-up 0.4s ease-out both;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .animate-fade-up {
+    animation: none;
+  }
+}
